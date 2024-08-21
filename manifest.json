@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Chrome Extension For Jenkins",
+  "version": "0.0.2",
+  "description": "My Chrome Extension Description For Jenkins",
+  "icons": {
+    "16": "icons/icon.png",
+    "32": "icons/icon.png",
+    "48": "icons/icon.png",
+    "128": "icons/icon.png"
+  },
+  "action": {
+    "default_icon": "icons/icon.png",
+    "default_title": "Extend Sidebar",
+    "default_popup": "popup/index.html"
+  },
+  "background": {
+    "service_worker": "background/service_worker.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://build.脱敏.io/job/MIB3/job/Delivery/job/*/job/*"],
+      "css": ["content/index.css"],
+      "js": ["content/index.js"]
+    }
+  ],
+  "permissions": ["notifications", "tabs"]
+}
